@@ -1,0 +1,52 @@
+name:                SimpleSecond
+version:             0.3.1.2
+github:              "nikolaytsel/SimpleSecond"
+license:             BSD3
+author:              "Nikolay Tsel"
+maintainer:          "nikolaytsel@gmail.com"
+copyright:           "2021 Nikolay Tsel"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Time and Date
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/tselnv/SimpleSecond#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- mtl >= 2.2.2 && < 2.3
+- time >= 1.9.3 && < 1.13
+- QuickCheck >= 2.14.2 && < 2.15
+
+library:
+  source-dirs: src
+
+executables:
+  SimpleSecond-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -Wall
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - SimpleSecond
+
+tests:
+  SimpleSecond-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - SimpleSecond
